@@ -1,7 +1,6 @@
 
-export class Task
-{
-    constructor(private _id: number, private _description: string, private _done: boolean) {}
+export default class Task {
+    constructor(private _id: number, private _description: string, private _done: boolean, private _deadLine: Date) { }
 
     get id() {
         return this._id;
@@ -17,6 +16,14 @@ export class Task
 
     set done(val: boolean) {
         this._done = val;
+    }
+
+    set deadline(val: Date) {
+        this._deadLine = val
+    }
+
+    get deadLine() {
+        return this.deadLine;
     }
 }
 
