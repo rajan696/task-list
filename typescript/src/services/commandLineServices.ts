@@ -8,7 +8,7 @@ import DeeletServices from "./deleteServices";
 import DeadlineUpdateService from "./deadlineUpdateService";
 import DateView from "./dateView";
 import DeadLineView from "./deadLineView";
-import ProjectView from "./projectCView";
+import ProjectView from "./ProjectView";
 
 export default class CommandLineService {
     private uitls = new Utils();
@@ -28,7 +28,7 @@ export default class CommandLineService {
         var commandRest = this.uitls.splitFirstSpace(commandLine);
         var command = commandRest[0];
         switch (command) {
-            case "show":
+            case "view by project":
                 this.showServices.show();
                 break;
             case "add":
@@ -53,13 +53,7 @@ export default class CommandLineService {
                 this.dateView.todayView();
                 break;
             case "view by date":
-                this.dateView.dateView();
-                break;
-            case "view by deadline":
-                this.deadLineView.deadLineView();
-                break;
-            case "view by project":
-                this.projectView.proejectView();
+                this.dateView.dateView(commandRest);
                 break;
             default:
                 this.errorServices.error(command);
